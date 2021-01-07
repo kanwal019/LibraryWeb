@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "LibraryWeb"
+    }
+  },
+  "defaultProject": "LibraryWeb",
+  "cli": {
+    "analytics": false
+  }
 }
