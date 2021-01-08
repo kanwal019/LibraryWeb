@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksRepositoryService } from '../services/books-repository.service';
+import { IBook, Book } from '../models/book-details';
 
 @Component({
   selector: 'app-view-books',
@@ -7,13 +8,21 @@ import { BooksRepositoryService } from '../services/books-repository.service';
   styleUrls: ['./view-books.component.css']
 })
 export class ViewBooksComponent implements OnInit {
-  books: any;
-  constructor(private booksRepositoryService : BooksRepositoryService) { 
+  books: IBook[];
+  public search: string;
+
+  constructor(private booksRepositoryService: BooksRepositoryService) {
   }
 
   ngOnInit(): void {
-    this.booksRepositoryService.FetchAllBooks().subscribe((data:any) => this.books = data);
-    console.log(this.books);
+    this.booksRepositoryService.FetchAllBooks().subscribe((res: Book[]) => this.books = res);
   }
 
+  onChange(value: string): void {
+    if (value.length > 0) {
+      this.booksRepositoryService.SearchBooks(value).subscribe((res: Book[]) => this.books = res)
+    } else {
+      this.booksRepositoryService.FetchAllBooks().subscribe((res: Book[]) => this.books = res);
+    }
+  }
 }

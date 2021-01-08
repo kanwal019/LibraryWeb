@@ -9,6 +9,7 @@ import { NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { ViewBooksComponent } from './view-books/view-books.component';
 import { BooksRepositoryService } from './services/books-repository.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BooksRepositoryService } from './services/books-repository.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     NgbModule,

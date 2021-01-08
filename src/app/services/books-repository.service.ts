@@ -11,10 +11,14 @@ export class BooksRepositoryService {
 
   constructor(private http: HttpClient) {
     this.serviceUrl = environment.serviceUrl;
-    this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
+    this.headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' });
   }
 
-  FetchAllBooks(){
-    return this.http.get(this.serviceUrl + "FetchAllBooks", {headers: this.headers});
+  FetchAllBooks() {
+    return this.http.get(this.serviceUrl + "FetchAllBooks", { headers: this.headers });
+  }
+
+  SearchBooks(value: string) {
+    return this.http.get(this.serviceUrl + "SearchBooks?query=" + value, { headers: this.headers });
   }
 }

@@ -1,1 +1,30 @@
-<p>view-books works!</p>
+<form>
+    <div class="form-group form-inline">
+        <input class="form-control ml-2" type="text" placeholder="Search Books" [ngModel]="search" [ngModelOptions]="{standalone: true}" (ngModelChange)='onChange($event)' />
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Availability</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+                {{book.name}}
+            </td>
+            <td>
+                {{book.author}}
+            </td>
+            <td [ngClass]="{'red' : book.status != 'Available'}">
+                {{book.status}}
+            </td>
+        </tr>
+    </tbody>
+</table>
