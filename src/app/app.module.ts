@@ -5,11 +5,15 @@ import { AppComponent } from './app.component';
 import { LibraryMainComponent } from './library-main/library-main.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { AddBooksComponent } from './add-books/add-books.component';
+import { ViewBooksComponent } from './view-books/view-books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LibraryMainComponent
+    LibraryMainComponent,
+    AddBooksComponent,
+    ViewBooksComponent
   ],
   imports: [
     BrowserModule,
